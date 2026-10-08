@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Harry Collection — Clothing, Shoes & Bags</title>
+<meta name="description" content="Harry Collection: everyday clothing, sneakers, heels, handbags and backpacks for men and women. Order online with cash on delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1F4F0; --ink:#10231D; --card:#FFFFFF; --muted:#58675F; --line:#D8DED9;
+  --brand:#12392F; --accent:#F4B63F; --rose:#E8A1A0; --on-brand:#F1F4F0;
+  --display:'Bricolage Grotesque','Arial Black',system-ui,sans-serif;
+  --body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0D1613;--ink:#EAF0EC;--card:#152520;--muted:#9FB0A8;--line:#26362F;--brand:#F4B63F;--on-brand:#10231D}
+}
+:root[data-theme="dark"]{--bg:#0D1613;--ink:#EAF0EC;--card:#152520;--muted:#9FB0A8;--line:#26362F;--brand:#F4B63F;--on-brand:#10231D}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;letter-spacing:-.02em}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-weight:600;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.accent{background:var(--accent);border-color:var(--accent);color:#10231D}
+.btn.block{width:100%}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+
+/* announcement + nav */
+.promo{background:var(--brand);color:var(--on-brand);font-size:14px;text-align:center;padding:8px 16px}
+header.nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.nav-in{display:flex;align-items:center;gap:20px;height:64px}
+.logo{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:26px;height:26px;border-radius:8px;background:var(--accent);display:grid;place-items:center;font-style:normal;font-size:15px;color:#10231D}
+.links{display:flex;gap:22px;margin-left:auto}
+.links a{text-decoration:none;font-weight:500;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.icons{display:flex;gap:6px;margin-left:12px}
+.ib{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center}
+.ib svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.badge{position:absolute;top:-4px;right:-4px;min-width:19px;height:19px;border-radius:99px;background:var(--accent);color:#10231D;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 5px}
+.badge:empty{display:none}
+@media(max-width:760px){.links{display:none}.icons{margin-left:auto}}
+
+/* hero */
+.hero{padding:48px 0 0;overflow:hidden}
+.hero h1{font-size:clamp(46px,9vw,112px);font-weight:800;max-width:11ch}
+.hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:46ch;margin:22px 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.rail{position:relative;margin-top:44px;height:290px}
+.rail::before{content:"";position:absolute;left:-20px;right:-20px;top:22px;height:5px;border-radius:4px;background:var(--ink)}
+.hang{position:absolute;top:22px;width:clamp(96px,17vw,170px);transform-origin:50% 0;animation:sway 1.8s ease-out 1 both;background:none;border:0;padding:0;text-align:center}
+.hang .hook{display:block;width:34px;height:34px;margin:0 auto -6px;border:3px solid var(--ink);border-bottom:0;border-radius:50% 50% 0 0;border-left-color:transparent;transform:rotate(0)}
+.hang svg{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 10px rgba(0,0,0,.16))}
+.hang span{display:block;font-size:13px;font-weight:600;margin-top:4px}
+.hang:hover{animation:sway2 1.2s ease-in-out 1}
+.hang:nth-child(1){left:2%;animation-delay:.05s}
+.hang:nth-child(2){left:22%;animation-delay:.15s}
+.hang:nth-child(3){left:42%;animation-delay:.25s}
+.hang:nth-child(4){left:62%;animation-delay:.35s}
+.hang:nth-child(5){left:81%;animation-delay:.45s}
+@keyframes sway{0%{transform:rotate(14deg)}25%{transform:rotate(-9deg)}50%{transform:rotate(5deg)}75%{transform:rotate(-2deg)}100%{transform:rotate(0)}}
+@keyframes sway2{0%,100%{transform:rotate(0)}30%{transform:rotate(-6deg)}65%{transform:rotate(4deg)}}
+@media(max-width:620px){.hang:nth-child(n+4){display:none}.hang:nth-child(1){left:3%}.hang:nth-child(2){left:36%}.hang:nth-child(3){left:68%}.rail{height:250px}}
+
+/* trust strip */
+.strip{margin-top:40px;background:var(--brand);color:var(--on-brand)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:20px;padding-bottom:20px}
+.strip b{display:block;font-family:var(--display);font-size:17px}
+.strip small{opacity:.8;font-size:14px}
+@media(max-width:760px){.strip .wrap{grid-template-columns:1fr 1fr}}
+
+/* sections */
+section{padding:72px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.sh h2{font-size:clamp(30px,5vw,52px)}
+.sh p{color:var(--muted);margin:8px 0 0;max-width:50ch}
+
+/* collections */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.tile{position:relative;border-radius:22px;padding:26px;min-height:240px;display:flex;flex-direction:column;justify-content:flex-end;text-align:left;border:0;overflow:hidden}
+.tile h3{font-size:34px;position:relative;z-index:1}
+.tile p{margin:6px 0 0;position:relative;z-index:1;font-size:15px}
+.tile svg{position:absolute;right:-18px;top:-6px;width:58%;opacity:.95;transition:transform .3s}
+.tile:hover svg{transform:rotate(-5deg) scale(1.04)}
+.tile.men{background:#BFD3E6;color:#10231D}
+.tile.women{background:var(--rose);color:#10231D}
+.tile.shoes{background:#C9DFC4;color:#10231D}
+.tile.bags{background:#D6CCEA;color:#10231D}
+@media(max-width:760px){.tile{min-height:190px}}
+
+/* shop controls */
+.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:9px 18px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.controls #kinds{flex:0 0 100%}
+.controls .right{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+.field,select.field{height:44px;padding:0 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+input.field{min-width:200px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.art{position:relative;aspect-ratio:1/1.08;display:grid;place-items:center;border:0;width:100%;padding:22px}
+.art svg{width:78%;height:auto;filter:drop-shadow(0 10px 12px rgba(0,0,0,.14));transition:transform .3s}
+.art:hover svg{transform:scale(1.05)}
+.tag{position:absolute;left:12px;top:12px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px}
+.tag.sale{background:var(--accent);color:#10231D}
+.heart{position:absolute;right:10px;top:10px;width:38px;height:38px;border-radius:50%;border:0;background:var(--card);display:grid;place-items:center}
+.heart svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linejoin:round;filter:none;position:static}
+.heart[aria-pressed="true"] svg{fill:#E0524F;stroke:#E0524F}
+.info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.info h3{font-size:18px;letter-spacing:-.01em}
+.meta{font-size:13px;color:var(--muted)}
+.price{display:flex;gap:8px;align-items:baseline;font-weight:600}
+.price s{color:var(--muted);font-weight:400;font-size:14px}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.25);display:block}
+.info .btn{margin-top:auto;padding:10px 16px}
+.empty{grid-column:1/-1;text-align:center;padding:50px 10px;color:var(--muted)}
+
+/* size guide */
+.sizebox{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+.tabs{display:flex;gap:8px;margin-bottom:18px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:460px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-size:15px}
+th{font-family:var(--display);font-size:15px}
+.note{color:var(--muted);font-size:14px;margin:14px 0 0}
+
+/* insta */
+.insta{background:var(--brand);color:var(--on-brand);border-radius:28px;padding:44px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+.insta h2{font-size:clamp(30px,5vw,50px)}
+.insta p{opacity:.85;max-width:44ch}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mosaic div{aspect-ratio:1;border-radius:12px;display:grid;place-items:center}
+.mosaic svg{width:70%}
+@media(max-width:760px){.insta{grid-template-columns:1fr;padding:28px}}
+
+/* faq + contact */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-size:22px;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--muted);margin:10px 0 0}
+form.stack{display:grid;gap:12px}
+.stack label{font-size:14px;font-weight:600;display:grid;gap:6px}
+.stack .field{width:100%;height:46px}
+textarea.field{height:96px!important;padding-top:10px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{text-decoration:none;margin-right:16px}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(5,12,9,.5);opacity:0;pointer-events:none;transition:opacity .25s;z-index:40}
+.scrim.on{opacity:1;pointer-events:auto}
+aside.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);z-index:50;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);border-left:1px solid var(--line)}
+aside.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dh h2{font-size:24px}
+.x{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);font-size:20px;line-height:1}
+.db{flex:1;overflow:auto;padding:16px 20px}
+.free{font-size:14px;margin-bottom:14px}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.line{display:grid;grid-template-columns:76px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.line .th{width:76px;height:76px;border-radius:12px;display:grid;place-items:center}
+.line .th svg{width:70%}
+.line h4{margin:0;font-size:15px}
+.line small{color:var(--muted)}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:99px;background:var(--card)}
+.qty button{width:32px;height:32px;border:0;background:none;font-size:18px}
+.qty span{min-width:22px;text-align:center;font-weight:600}
+.rm{background:none;border:0;color:var(--muted);font-size:13px;text-decoration:underline;padding:0;margin-top:6px}
+.df{border-top:1px solid var(--line);padding:16px 20px;background:var(--card)}
+.sum{display:flex;justify-content:space-between;font-size:15px;margin:4px 0}
+.sum.t{font-family:var(--display);font-size:20px;font-weight:700;margin-top:8px}
+.cp{display:flex;gap:8px;margin-bottom:10px}
+.cp .field{flex:1;height:42px}
+.cp .btn{padding:8px 16px}
+.msg{font-size:13px;margin:0 0 8px;min-height:18px}
+.msg.ok{color:#2c8a5a}.msg.bad{color:#d0453f}
+
+/* dialogs */
+dialog{border:0;border-radius:24px;padding:0;background:var(--bg);color:var(--ink);width:min(880px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:auto}
+dialog::backdrop{background:rgba(5,12,9,.55)}
+.qv{display:grid;grid-template-columns:1fr 1fr}
+.qv .big{display:grid;place-items:center;padding:30px;min-height:340px}
+.qv .big svg{width:75%;filter:drop-shadow(0 14px 16px rgba(0,0,0,.18))}
+.qv .det{padding:28px;display:flex;flex-direction:column;gap:14px;position:relative}
+.qv h2{font-size:32px;padding-right:44px}
+.det .x{position:absolute;right:16px;top:16px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.sw{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);padding:0}
+.sw[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:2px}
+.sz{min-width:46px;height:42px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);font-weight:600}
+.sz[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.lbl{font-size:14px;font-weight:600;margin-bottom:6px;display:flex;justify-content:space-between}
+.lbl a{font-weight:400;color:var(--muted)}
+@media(max-width:720px){.qv{grid-template-columns:1fr}.qv .big{min-height:240px}}
+.ck{padding:28px}
+.ck h2{font-size:30px;margin-bottom:6px}
+.ordertxt{white-space:pre-wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;max-height:200px;overflow:auto}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:99px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:90;max-width:90%}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== HARRY COLLECTION — POLISH LAYER ===== */
+:root{
+  --shadow-soft:0 10px 30px rgba(16,35,29,.07);
+  --shadow-hover:0 18px 42px rgba(16,35,29,.12);
+}
+body{
+  background:
+    radial-gradient(circle at 90% 0%, rgba(244,182,63,.08), transparent 24rem),
+    var(--bg);
+}
+.promo{
+  letter-spacing:.01em;
+  font-weight:500;
+}
+header.nav{
+  box-shadow:0 1px 0 rgba(16,35,29,.03);
+}
+.nav-in{height:68px}
+.logo{transition:transform .2s ease}
+.logo:hover{transform:translateY(-1px)}
+.logo i{
+  box-shadow:0 5px 14px rgba(244,182,63,.22);
+  transition:transform .2s ease;
+}
+.logo:hover i{transform:rotate(-5deg)}
+.links a{
+  position:relative;
+  transition:color .2s ease;
+}
+.links a::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-7px;
+  height:2px;border-radius:99px;
+  background:var(--accent);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .2s ease;
+}
+.links a:hover::after{transform:scaleX(1)}
+.ib{
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.ib:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-soft);
+  border-color:color-mix(in srgb,var(--ink) 20%,var(--line));
+}
+.hero{padding-top:56px}
+.hero h1{letter-spacing:-.045em}
+.cta .btn{box-shadow:0 6px 18px rgba(16,35,29,.07)}
+.btn{
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(16,35,29,.10);
+}
+.btn:active{transform:translateY(0)}
+.rail{margin-top:50px}
+.hang{
+  transition:filter .2s ease;
+}
+.hang:hover{filter:brightness(1.02)}
+.strip{
+  box-shadow:0 8px 24px rgba(16,35,29,.08);
+}
+.strip .wrap{padding-top:22px;padding-bottom:22px}
+.strip b{letter-spacing:-.01em}
+section{padding-top:78px;padding-bottom:78px}
+.sh{margin-bottom:30px}
+.tiles{gap:18px}
+.tile{
+  min-height:250px;
+  box-shadow:var(--shadow-soft);
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.tile:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-hover);
+}
+.tile p{max-width:25ch}
+.controls{margin-bottom:28px}
+.chip,.field{
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.chip:hover{
+  border-color:color-mix(in srgb,var(--ink) 24%,var(--line));
+}
+.field:focus{
+  outline:none;
+  border-color:color-mix(in srgb,var(--accent) 70%,var(--ink));
+  box-shadow:0 0 0 3px rgba(244,182,63,.14);
+}
+.grid{gap:22px}
+.card{
+  border-color:color-mix(in srgb,var(--line) 88%,transparent);
+  box-shadow:0 4px 18px rgba(16,35,29,.045);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow-hover);
+  border-color:color-mix(in srgb,var(--ink) 12%,var(--line));
+}
+.art{
+  overflow:hidden;
+}
+.art::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.16),transparent 45%,rgba(16,35,29,.035));
+  pointer-events:none;
+}
+.art svg{
+  position:relative;
+  z-index:1;
+  transition:transform .35s cubic-bezier(.2,.75,.25,1),filter .35s ease;
+}
+.card:hover .art svg{
+  transform:scale(1.07) translateY(-2px);
+}
+.heart{
+  z-index:2;
+  box-shadow:0 5px 14px rgba(16,35,29,.09);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.heart:hover{
+  transform:scale(1.06);
+  box-shadow:0 8px 18px rgba(16,35,29,.14);
+}
+.info{padding:16px 17px 17px}
+.info h3{line-height:1.15}
+.price{margin-top:2px}
+.dots{margin-top:2px}
+.sizebox{
+  box-shadow:var(--shadow-soft);
+}
+.tabs .chip[aria-pressed="true"]{
+  box-shadow:0 5px 14px rgba(16,35,29,.10);
+}
+.insta{
+  box-shadow:0 16px 40px rgba(16,35,29,.12);
+}
+.mosaic div{
+  overflow:hidden;
+  transition:transform .22s ease;
+}
+.mosaic div:hover{transform:translateY(-3px) rotate(-1deg)}
+details{
+  transition:padding .2s ease;
+}
+details[open]{padding-bottom:19px}
+.drawer{
+  box-shadow:-18px 0 45px rgba(5,12,9,.14);
+}
+.line{
+  transition:background .18s ease;
+}
+.line:hover{
+  background:color-mix(in srgb,var(--card) 82%,var(--brand) 18%);
+}
+dialog{
+  box-shadow:0 24px 80px rgba(5,12,9,.24);
+}
+.qv .big{
+  overflow:hidden;
+}
+.qv .big svg{
+  transition:transform .3s ease;
+}
+.qv .big:hover svg{transform:scale(1.04)}
+footer{
+  background:color-mix(in srgb,var(--bg) 94%,var(--brand) 6%);
+}
+@media(max-width:760px){
+  .hero{padding-top:38px}
+  .hero h1{max-width:9ch}
+  section{padding-top:62px;padding-bottom:62px}
+  .tiles{gap:12px}
+  .tile{border-radius:18px;min-height:205px;padding:22px}
+  .tile h3{font-size:30px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .card{border-radius:15px}
+  .info{padding:13px}
+  .info h3{font-size:16px}
+  .info .btn{padding:9px 12px;font-size:14px}
+  .art{padding:14px}
+  .strip .wrap{gap:14px}
+}
+@media(max-width:480px){
+  .wrap{padding-left:14px;padding-right:14px}
+  .nav-in{gap:10px}
+  .logo{font-size:19px}
+  .logo i{width:23px;height:23px}
+  .icons{gap:4px}
+  .ib{width:39px;height:39px}
+  .hero h1{font-size:clamp(42px,15vw,68px)}
+  .hero p.lead{font-size:16px}
+  .cta{width:100%}
+  .cta .btn{flex:1}
+  .grid{gap:10px}
+  .info .meta{font-size:12px}
+  .price{font-size:15px}
+  .price s{font-size:12px}
+  .qv .det{padding:22px}
+}
+
+
+/* Bags & purses tile — cleaner typography */
+.tile.bags h3{
+  font-family:var(--body);
+  font-size:clamp(26px,3vw,32px);
+  font-weight:700;
+  letter-spacing:-.035em;
+  line-height:1.05;
+  max-width:8ch;
+}
+.tile.bags p{
+  max-width:18ch;
+  line-height:1.35;
+  font-size:14px;
+}
+.tile.bags svg{
+  width:50%;
+  right:-6px;
+  top:4px;
+}
+@media(max-width:760px){
+  .tile.bags h3{font-size:27px;max-width:7ch}
+  .tile.bags svg{width:48%;right:-8px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="promo" id="promo"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="Harry Collection home"><i>H</i>Harry Collection</a>
+    <nav class="links" aria-label="Main">
+      <a href="#shop" data-cat="All">Shop all</a>
+      <a href="#shop" data-cat="Men">Men</a>
+      <a href="#shop" data-cat="Women">Women</a>
+      <a href="#shop" data-kind="Shoes">Shoes</a>
+      <a href="#shop" data-kind="Bags">Bags</a>
+      <a href="#sizes">Size guide</a>
+      <a href="#faq">Help</a>
+    </nav>
+    <div class="icons">
+      <button class="ib" id="wishBtn" aria-label="Show saved items"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.600-9 9-9 9z"/></svg><span class="badge" id="wishCount"></span></button>
+      <button class="ib" id="bagBtn" aria-label="Open bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="badge" id="bagCount"></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <h1>Wear it your way.</h1>
+    <p class="lead">Clothing, shoes and bags for men and women. Easy fits, honest prices, delivered to your door.</p>
+    <div class="cta">
+      <a class="btn accent" href="#shop">Shop the collection</a>
+      <a class="btn ghost" id="igHero" href="#" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+    <div class="rail" id="rail" aria-label="Featured pieces"></div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="wrap">
+    <div><b>Free shipping</b><small id="freeTxt"></small></div>
+    <div><b>Cash on delivery</b><small>Pay when it arrives</small></div>
+    <div><b>Easy exchange</b><small>Wrong size? We swap it</small></div>
+    <div><b>Order by WhatsApp</b><small>Quick replies, real people</small></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sh"><div><h2>Shop by category</h2><p>Clothing, shoes and bags for him, for her, and pieces anyone can borrow.</p></div></div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+</section>
+
+<section id="shop" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><div><h2>The collection</h2><p id="count" aria-live="polite"></p></div></div>
+    <div class="controls">
+      <div class="chips" role="group" aria-label="Filter by type" id="kinds"></div>
+      <div class="chips" role="group" aria-label="Filter by gender" id="chips"></div>
+      <div class="right">
+        <input class="field" id="q" type="search" placeholder="Search tees, shoes, bags" aria-label="Search products">
+        <select class="field" id="sort" aria-label="Sort products">
+          <option value="feat">Featured</option>
+          <option value="low">Price: low to high</option>
+          <option value="high">Price: high to low</option>
+          <option value="disc">Biggest discount</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="sizes" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><div><h2>Find your size</h2><p>Measure your chest or bust and waist, then match it to the chart.</p></div></div>
+    <div class="sizebox">
+      <div class="tabs" role="group" aria-label="Size chart"><button class="chip" data-sz="men" aria-pressed="true">Men</button><button class="chip" data-sz="women" aria-pressed="false">Women</button><button class="chip" data-sz="shoes" aria-pressed="false">Shoes</button></div>
+      <div class="tbl" id="sizeTbl"></div>
+      <p class="note">Clothing sizes are body measurements in inches. Shoe sizes are UK/India with foot length in cm. Between two sizes? Go up for comfort.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="insta">
+      <div>
+        <h2>New drops land on Instagram first.</h2>
+        <p>Follow @harrycollection_ for outfit ideas, restocks and offers. You can also message us there to place an order.</p>
+        <div class="cta" style="margin-top:20px"><a class="btn accent" id="igCta" href="#" target="_blank" rel="noopener">Open Instagram</a></div>
+      </div>
+      <div class="mosaic" id="mosaic" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap two">
+    <div>
+      <div class="sh"><div><h2>Questions, answered</h2></div></div>
+      <details><summary>How long does delivery take?</summary><p>Most orders reach you in 3 to 7 working days after dispatch. We confirm your order and share tracking on WhatsApp.</p></details>
+      <details><summary>Can I pay on delivery?</summary><p>Yes. Cash on delivery is available on every order. You can also pay by UPI once we confirm your order.</p></details>
+      <details><summary>What if the size doesn't fit?</summary><p>Message us within 7 days of delivery and we'll arrange an exchange. Items must be unworn with tags attached.</p></details>
+      <details><summary>How do I wash my clothes?</summary><p>Machine wash clothes cold with similar colours and dry in shade. Wipe shoes and bags with a soft damp cloth and keep them out of direct sun.</p></details>
+      <details><summary>Do you ship across India?</summary><p>Yes, we deliver to most pin codes in India. Enter your pin code at checkout and we'll confirm.</p></details>
+    </div>
+    <div id="contact">
+      <div class="sh"><div><h2>Talk to us</h2><p>Questions about fit, bulk orders or collaborations. We reply fast.</p></div></div>
+      <form class="stack" id="contactForm">
+        <label>Your name<input class="field" name="n" required autocomplete="name"></label>
+        <label>Message<textarea class="field" name="m" required></textarea></label>
+        <button class="btn" type="submit">Send on WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b style="font-family:var(--display);color:var(--ink)">Harry Collection</b><br>Clothing, shoes and bags for men and women.</div>
+    <div><a href="#shop">Shop</a><a href="#sizes">Size guide</a><a href="#faq">Help</a><a id="igFoot" href="#" target="_blank" rel="noopener">Instagram</a></div>
+    <div>&copy; <span id="yr"></span> Harry Collection</div>
+  </div>
+</footer>
+
+<!-- bag drawer -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag" aria-hidden="true">
+  <div class="dh"><h2>Your bag</h2><button class="x" id="closeBag" aria-label="Close bag">&times;</button></div>
+  <div class="db" id="bagBody"></div>
+  <div class="df" id="bagFoot"></div>
+</aside>
+
+<!-- product dialog -->
+<dialog id="pd" aria-label="Product details"></dialog>
+<!-- checkout dialog -->
+<dialog id="ck" aria-label="Checkout"></dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ============ EDIT THESE ============ */
+const CONFIG = {
+  brand: 'Harry Collection',
+  instagram: 'harrycollection_',
+  whatsapp: '919999999999',      // your number with country code, no + or spaces
+  freeShippingAbove: 1999,
+  shippingFee: 99,
+  coupons: { HARRY10: 10, WELCOME15: 15 }  // code: percent off
+};
+/* ==================================== */
+
+const IG = 'https://www.instagram.com/' + CONFIG.instagram + '/';
+const money = n => '\u20B9' + Math.round(n).toLocaleString('en-IN');
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+/* garment drawings */
+const G = {
+  tee: c => `<path d="M62 22 L88 12 Q100 30 112 12 L138 22 L184 58 L164 88 L146 74 L146 204 L54 204 L54 74 L36 88 L16 58 Z" fill="${c}"/><path d="M88 12 Q100 30 112 12" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="3"/><path d="M146 74 L146 204 M54 74 L54 204" stroke="rgba(0,0,0,.08)" stroke-width="2"/>`,
+  shirt: c => `<path d="M62 22 L88 12 L100 34 L112 12 L138 22 L184 62 L164 92 L146 76 L146 204 L54 204 L54 76 L36 92 L16 62 Z" fill="${c}"/><path d="M88 12 L100 34 L82 42 Z M112 12 L100 34 L118 42 Z" fill="rgba(255,255,255,.4)" stroke="rgba(0,0,0,.2)"/><path d="M100 34 V204" stroke="rgba(0,0,0,.2)" stroke-width="2"/><g fill="rgba(0,0,0,.35)"><circle cx="100" cy="62" r="2.6"/><circle cx="100" cy="92" r="2.6"/><circle cx="100" cy="122" r="2.6"/><circle cx="100" cy="152" r="2.6"/><circle cx="100" cy="182" r="2.6"/></g>`,
+  hoodie: c => `<path d="M64 30 L90 20 L110 20 L136 30 L186 150 L162 164 L146 120 L146 206 L54 206 L54 120 L38 164 L14 150 Z" fill="${c}"/><path d="M76 26 Q100 -6 124 26 Q100 50 76 26 Z" fill="rgba(0,0,0,.22)"/><path d="M72 150 H128 L134 188 H66 Z" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2.5"/><path d="M92 44 V74 M108 44 V74" stroke="rgba(255,255,255,.7)" stroke-width="3" stroke-linecap="round"/>`,
+  jacket: c => `<path d="M64 26 L88 14 L112 14 L136 26 L186 150 L162 164 L146 116 L146 200 L54 200 L54 116 L38 164 L14 150 Z" fill="${c}"/><path d="M88 14 L100 40 L112 14" fill="rgba(255,255,255,.3)" stroke="rgba(0,0,0,.2)"/><path d="M100 40 V200" stroke="rgba(0,0,0,.35)" stroke-width="3"/><path d="M54 190 H146 M54 116 L38 164 M146 116 L162 164" stroke="rgba(0,0,0,.2)" stroke-width="6" fill="none"/>`,
+  dress: c => `<path d="M76 10 L90 10 Q100 32 110 10 L124 10 L134 84 L180 208 L20 208 L66 84 Z" fill="${c}"/><path d="M66 84 Q100 96 134 84" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="3"/><path d="M100 96 L76 208 M100 96 L124 208" stroke="rgba(0,0,0,.1)" stroke-width="2"/>`,
+  skirt: c => `<path d="M66 18 H134 L180 202 H20 Z" fill="${c}"/><path d="M66 18 H134 V34 H66 Z" fill="rgba(0,0,0,.16)"/><path d="M84 34 L56 202 M100 34 V202 M116 34 L144 202" stroke="rgba(0,0,0,.12)" stroke-width="2"/>`,
+  jeans: c => `<path d="M54 14 H146 L154 208 H106 L100 86 L94 208 H46 Z" fill="${c}"/><path d="M54 14 H146 V30 H54 Z" fill="rgba(0,0,0,.16)"/><path d="M100 30 V86 M100 30 Q80 40 76 62" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/>`
+  ,
+  sneaker: c => `<path d="M22 150 V122 Q22 112 34 110 L72 102 Q86 98 94 86 L104 72 Q112 64 124 72 L142 98 Q152 108 170 113 L186 121 Q194 126 194 140 V150 Z" fill="${c}"/><path d="M150 112 Q172 114 190 126 V150 H150 Z" fill="rgba(255,255,255,.28)"/><path d="M22 122 H44 V150 H22 Z" fill="rgba(0,0,0,.18)"/><path d="M16 148 H198 V164 Q198 172 189 172 H25 Q16 172 16 164 Z" fill="rgba(255,255,255,.92)" stroke="rgba(0,0,0,.22)" stroke-width="2"/><path d="M106 80 L120 90 M114 74 L128 86 M122 84 L134 96" stroke="rgba(255,255,255,.9)" stroke-width="3.5" stroke-linecap="round" fill="none"/>`,
+  loafer: c => `<path d="M20 148 V112 Q20 104 32 104 L52 106 Q70 108 84 98 Q112 84 148 104 Q176 114 190 130 Q196 138 194 148 Z" fill="${c}"/><path d="M86 100 Q120 96 150 112" fill="none" stroke="rgba(0,0,0,.35)" stroke-width="2.5" stroke-dasharray="4 3"/><path d="M16 146 H198 V158 Q198 164 190 164 H24 Q16 164 16 158 Z" fill="rgba(0,0,0,.6)"/><rect x="22" y="158" width="36" height="12" rx="2" fill="rgba(0,0,0,.7)"/>`,
+  heel: c => `<path d="M38 66 Q38 58 48 58 L64 58 Q70 108 108 122 L178 138 Q192 144 186 156 L112 156 Q66 148 46 118 Q38 98 38 66 Z" fill="${c}"/><path d="M40 112 L68 128 L64 180 L44 180 Z" fill="rgba(0,0,0,.38)"/><path d="M110 156 L186 156" stroke="rgba(0,0,0,.35)" stroke-width="6" stroke-linecap="round"/>`,
+  handbag: c => `<path d="M62 92 Q62 30 100 30 Q138 30 138 92" fill="none" stroke="${c}" stroke-width="9"/><path d="M62 92 Q62 30 100 30 Q138 30 138 92" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="9"/><path d="M28 92 H172 L184 192 Q184 204 172 204 H28 Q16 204 16 192 Z" fill="${c}"/><path d="M28 92 H172 L168 124 Q100 146 32 124 Z" fill="rgba(0,0,0,.15)"/><circle cx="100" cy="132" r="8" fill="rgba(255,255,255,.8)" stroke="rgba(0,0,0,.25)"/>`,
+  tote: c => `<path d="M62 86 Q62 26 100 26 Q138 26 138 86" fill="none" stroke="${c}" stroke-width="9"/><path d="M62 86 Q62 26 100 26 Q138 26 138 86" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="9"/><path d="M34 86 H166 L178 198 Q178 206 170 206 H30 Q22 206 22 198 Z" fill="${c}"/><rect x="72" y="122" width="56" height="34" rx="3" fill="rgba(255,255,255,.55)"/>`,
+  sling: c => `<path d="M42 94 Q54 30 100 20 Q146 30 158 94" fill="none" stroke="${c}" stroke-width="8"/><path d="M42 94 Q54 30 100 20 Q146 30 158 94" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="8"/><path d="M34 94 H166 Q178 94 178 106 V172 Q178 186 164 186 H36 Q22 186 22 172 V106 Q22 94 34 94 Z" fill="${c}"/><path d="M22 106 Q22 94 34 94 H166 Q178 94 178 106 V124 Q100 146 22 124 Z" fill="rgba(0,0,0,.16)"/><path d="M22 150 H178" stroke="rgba(255,255,255,.55)" stroke-width="3" stroke-dasharray="6 4"/><circle cx="100" cy="132" r="6" fill="rgba(255,255,255,.8)"/>`,
+  backpack: c => `<path d="M72 36 Q72 12 100 12 Q128 12 128 36" fill="none" stroke="rgba(0,0,0,.35)" stroke-width="7"/><path d="M50 56 Q50 30 100 30 Q150 30 150 56 V192 Q150 206 136 206 H64 Q50 206 50 192 Z" fill="${c}"/><path d="M62 128 H138 V190 H62 Z" fill="rgba(0,0,0,.18)"/><path d="M62 128 H138" stroke="rgba(255,255,255,.55)" stroke-width="3"/><path d="M60 78 H140" stroke="rgba(255,255,255,.5)" stroke-width="3" stroke-dasharray="7 4"/><path d="M50 70 Q36 110 46 160 M150 70 Q164 110 154 160" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="6"/>`
+};
+const svg = (t, c) => `<svg viewBox="0 0 200 220" role="img" aria-hidden="true">${G[t](c)}</svg>`;
+const tint = c => `color-mix(in srgb, ${c} 24%, var(--card))`;
+
+/* catalogue: edit names, prices, colours */
+const C = {
+  green:['Bottle green','#1F4D3F'], sand:['Sand','#D8C7A5'], black:['Black','#1F2225'], white:['White','#F2F2EE'],
+  char:['Charcoal','#3E444A'], mari:['Marigold','#F2B632'], sage:['Sage','#9DB4A0'], sky:['Sky','#A9C7E3'],
+  navy:['Navy','#1F2D4D'], olive:['Olive','#7B8458'], stone:['Stone','#CFC8B8'], khaki:['Khaki','#B79F78'],
+  indigo:['Indigo','#2F4670'], wash:['Washed blue','#7F9BBF'], rose:['Rose','#D98A8C'], em:['Emerald','#1F6B52'],
+  blush:['Blush','#F1B5B0'], butter:['Butter','#F3DF9A'], lilac:['Lilac','#B9A7D6'], tan:['Tan','#A9713F'], brown:['Brown','#5A3B27']
+};
+const col = (...k) => k.map(x => ({n:C[x][0], h:C[x][1]}));
+const SM = ['S','M','L','XL'], SW = ['XS','S','M','L'], SU = ['S','M','L','XL'];
+const SH = ['6','7','8','9','10'], SHW = ['3','4','5','6','7'], ONE = ['One size'];
+const P = [
+  {id:1, name:'Everyday Boxy Tee', cat:'Unisex', type:'tee', price:799, mrp:1199, colors:col('green','sand','black','white'), sizes:SU, tag:'Bestseller', desc:'Heavyweight cotton with a relaxed boxy cut. The tee you will reach for every day.', fabric:'100% combed cotton, 220 GSM'},
+  {id:2, name:'Oversized Hoodie', cat:'Unisex', type:'hoodie', price:1799, mrp:2499, colors:col('char','mari','sage'), sizes:SU, tag:'Bestseller', desc:'Soft fleece inside, drop shoulders and a roomy hood. Made for layering.', fabric:'Cotton fleece, 320 GSM'},
+  {id:3, name:'Classic Oxford Shirt', cat:'Men', type:'shirt', price:1399, mrp:1899, colors:col('sky','white','navy'), sizes:SM, tag:'', desc:'A sharp button-down that works for office days and weekend plans.', fabric:'Cotton oxford weave'},
+  {id:4, name:'Linen Casual Shirt', cat:'Men', type:'shirt', price:1499, mrp:1999, colors:col('olive','stone'), sizes:SM, tag:'New', desc:'Breathable linen blend with a relaxed collar. Built for warm days.', fabric:'Linen cotton blend'},
+  {id:5, name:'Slim Fit Chinos', cat:'Men', type:'jeans', price:1599, mrp:2199, colors:col('khaki','navy','black'), sizes:['28','30','32','34','36'], tag:'', desc:'Stretch chinos with a clean taper. Dress them up or down.', fabric:'Cotton with 2% elastane'},
+  {id:6, name:'Straight Fit Jeans', cat:'Men', type:'jeans', price:1899, mrp:2599, colors:col('indigo','wash','black'), sizes:['28','30','32','34','36'], tag:'Bestseller', desc:'Mid-rise straight jeans in durable denim that softens with every wear.', fabric:'Cotton denim, 12 oz'},
+  {id:7, name:'Wrap Midi Dress', cat:'Women', type:'dress', price:2199, mrp:2999, colors:col('rose','em','black'), sizes:SW, tag:'New', desc:'A flattering wrap waist with a flowing midi hem. Easy from brunch to dinner.', fabric:'Soft crepe, fully lined'},
+  {id:8, name:'Floral Summer Dress', cat:'Women', type:'dress', price:1799, mrp:2499, colors:col('blush','butter','lilac'), sizes:SW, tag:'', desc:'Lightweight, breezy and made to move. Pockets included.', fabric:'Viscose, lightweight'},
+  {id:9, name:'Ribbed Cropped Tee', cat:'Women', type:'tee', price:699, mrp:999, colors:col('white','black','rose'), sizes:SW, tag:'', desc:'Stretchy ribbed knit that hugs without squeezing. Pairs with everything.', fabric:'Cotton rib with spandex'},
+  {id:10, name:'High-Waist Mom Jeans', cat:'Women', type:'jeans', price:1999, mrp:2699, colors:col('wash','indigo','black'), sizes:['26','28','30','32'], tag:'Bestseller', desc:'High rise, relaxed through the leg, with a clean ankle length.', fabric:'Cotton denim, 11 oz'},
+  {id:11, name:'Pleated Midi Skirt', cat:'Women', type:'skirt', price:1499, mrp:1999, colors:col('em','black','sand'), sizes:SW, tag:'New', desc:'Knife pleats that swish as you walk. Elastic back waist for comfort.', fabric:'Satin finish polyester'},
+  {id:12, name:'Everyday Bomber Jacket', cat:'Unisex', type:'jacket', price:2799, mrp:3799, colors:col('olive','black','navy'), sizes:SU, tag:'', desc:'A light bomber with ribbed trims and zip pockets. Your go-to third layer.', fabric:'Poly twill, soft lining'}
+  ,
+  {id:13, name:'Classic White Sneakers', cat:'Unisex', type:'sneaker', price:2299, mrp:3199, colors:col('white','black','sage'), sizes:SH, tag:'Bestseller', desc:'Clean low-top sneakers that go with everything from jeans to dresses. Cushioned insole for all-day wear.', fabric:'Vegan leather upper, rubber sole'},
+  {id:14, name:'Chunky Street Sneakers', cat:'Men', type:'sneaker', price:2799, mrp:3799, colors:col('char','white','navy'), sizes:['7','8','9','10','11'], tag:'New', desc:'A thick sole and bold profile for a street look. Light enough to walk in all day.', fabric:'Mesh and synthetic upper, EVA sole'},
+  {id:15, name:'Leather Loafers', cat:'Men', type:'loafer', price:2999, mrp:3999, colors:col('black','tan','brown'), sizes:['7','8','9','10','11'], tag:'', desc:'Slip-on loafers with a polished finish. Smart enough for the office, easy enough for weekends.', fabric:'Leather upper, cushioned insole'},
+  {id:16, name:'Block Heel Sandals', cat:'Women', type:'heel', price:1999, mrp:2799, colors:col('rose','black','sand'), sizes:SHW, tag:'New', desc:'A stable 2.5 inch block heel with a padded footbed. Dress up any outfit without the ache.', fabric:'Synthetic upper, cushioned footbed'},
+  {id:17, name:'Everyday Sneakers', cat:'Women', type:'sneaker', price:2199, mrp:2999, colors:col('white','blush','lilac'), sizes:SHW, tag:'', desc:'Lightweight lace-ups with a soft sole. Comfortable for college, work and travel.', fabric:'Canvas upper, rubber sole'},
+  {id:18, name:'Structured Handbag', cat:'Women', type:'handbag', price:2499, mrp:3499, colors:col('black','tan','em'), sizes:ONE, tag:'Bestseller', desc:'Roomy top-handle bag with a magnetic closure and inner zip pocket. Fits a laptop sleeve or tablet.', fabric:'Vegan leather, fabric lining'},
+  {id:19, name:'Canvas Tote Bag', cat:'Unisex', type:'tote', price:899, mrp:1299, colors:col('sand','black','sage'), sizes:ONE, tag:'', desc:'A sturdy everyday tote for books, groceries or the gym. Wide base and strong straps.', fabric:'Thick cotton canvas'},
+  {id:20, name:'Mini Crossbody Purse', cat:'Women', type:'sling', price:1299, mrp:1799, colors:col('blush','black','butter'), sizes:ONE, tag:'New', desc:'Small enough to forget, big enough for phone, cards and lipstick. Adjustable strap.', fabric:'Vegan leather'},
+  {id:21, name:'City Sling Bag', cat:'Men', type:'sling', price:1499, mrp:1999, colors:col('black','olive','navy'), sizes:ONE, tag:'', desc:'A compact sling with a zip pocket and padded strap. Keeps phone, wallet and keys close.', fabric:'Water-resistant nylon'},
+  {id:22, name:'Everyday Backpack', cat:'Unisex', type:'backpack', price:1899, mrp:2599, colors:col('black','char','navy'), sizes:ONE, tag:'Bestseller', desc:'A 20 litre backpack with a padded laptop pocket and comfortable straps. Made for daily commutes.', fabric:'Water-resistant polyester'}
+];
+
+/* state */
+const load = (k,d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } };
+const save = (k,v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} };
+let cart = load('hc_cart', []), wish = load('hc_wish', []), coupon = load('hc_coupon', null);
+let savedOnly = false, filter = 'All', sortBy = 'feat', query = '', cur = null, lastOrder = '';
+
+const byId = id => P.find(p => p.id === id);
+const KINDS = {sneaker:'Shoes',heel:'Shoes',loafer:'Shoes',handbag:'Bags',tote:'Bags',sling:'Bags',backpack:'Bags'};
+const kindOf = p => KINDS[p.type] || 'Clothing';
+const CARE = {Clothing:'Machine wash cold.', Shoes:'Wipe clean with a damp cloth.', Bags:'Wipe clean with a soft cloth.'};
+const KW = {Clothing:'clothes clothing apparel', Shoes:'shoe shoes footwear', Bags:'bag bags purse purses'};
+const szTxt = z => z === 'One size' ? '' : ', size ' + z;
+let kindF = 'All';
+const disc = p => Math.round((1 - p.price / p.mrp) * 100);
+
+let toastT;
+function toast(t){ const el = $('#toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('on'), 2200); }
+
+/* static bits */
+$('#promo').textContent = `Free shipping above ${money(CONFIG.freeShippingAbove)} · Use HARRY10 for 10% off your first order.`;
+$('#freeTxt').textContent = `On orders above ${money(CONFIG.freeShippingAbove)}`;
+$('#yr').textContent = new Date().getFullYear();
+['igHero','igCta','igFoot'].forEach(id => $('#'+id).href = IG);
+
+/* hero rail */
+[[7],[18],[3],[2],[22]].forEach(([id]) => {
+  const p = byId(id), b = document.createElement('button');
+  b.className = 'hang'; b.setAttribute('aria-label', 'View ' + p.name);
+  b.innerHTML = `<i class="hook"></i>${svg(p.type, p.colors[0].h)}<span>${p.name}</span>`;
+  b.onclick = () => openProduct(p.id);
+  $('#rail').appendChild(b);
+});
+
+/* collection tiles */
+[['men','Men','Shirts, jeans and chinos','Men','All','shirt','#2F4670'],
+ ['women','Women','Dresses, skirts and tops','Women','All','dress','#1F6B52'],
+ ['shoes','Shoes','Sneakers, loafers and heels','All','Shoes','sneaker','#12392F'],
+ ['bags','Bags and purses','Handbags, slings and backpacks','All','Bags','handbag','#5A3B8C']].forEach(([cls,t,sub,g,k,type,c]) => {
+  const b = document.createElement('button');
+  b.className = 'tile ' + cls;
+  b.innerHTML = `${svg(type,c)}<h3>${t}</h3><p>${sub}</p>`;
+  b.onclick = () => { setView(g, k); $('#shop').scrollIntoView(); };
+  $('#tiles').appendChild(b);
+});
+
+/* mosaic */
+[['tee','#1F4D3F','#F4B63F'],['handbag','#D98A8C','#E8E1D0'],['hoodie','#F2B632','#2a5a4c'],['sneaker','#F1F4F0','#2F4670'],['shirt','#A9C7E3','#2a5a4c'],['backpack','#1F6B52','#E8A1A0']]
+  .forEach(([t,c,bg]) => { const d = document.createElement('div'); d.style.background = bg; d.innerHTML = svg(t,c); $('#mosaic').appendChild(d); });
+
+/* filters */
+const chipRow = (el, items, attr, on) => items.forEach(([v,l]) => { const b = document.createElement('button'); b.className = 'chip'; b.textContent = l; b.dataset[attr] = v; b.onclick = () => on(v); el.appendChild(b); });
+chipRow($('#kinds'), [['All','All items'],['Clothing','Clothing'],['Shoes','Shoes'],['Bags','Bags and purses']], 'k', k => setView(filter, k));
+chipRow($('#chips'), ['All','Men','Women','Unisex'].map(x => [x,x]), 'c', c => setView(c, kindF));
+function syncChips(){
+  $$('#chips .chip').forEach(b => b.setAttribute('aria-pressed', !savedOnly && b.dataset.c === filter));
+  $$('#kinds .chip').forEach(b => b.setAttribute('aria-pressed', !savedOnly && b.dataset.k === kindF));
+}
+function setView(g, k){ savedOnly = false; filter = g; kindF = k; syncChips(); renderGrid(); }
+$$('.links a[data-cat]').forEach(a => a.addEventListener('click', () => setView(a.dataset.cat, 'All')));
+$$('.links a[data-kind]').forEach(a => a.addEventListener('click', () => setView('All', a.dataset.kind)));
+$('#q').addEventListener('input', e => { savedOnly = false; query = e.target.value.trim().toLowerCase(); syncChips(); renderGrid(); });
+$('#sort').addEventListener('change', e => { sortBy = e.target.value; renderGrid(); });
+
+function renderGrid(){
+  let list = P.filter(p => (!savedOnly || wish.includes(p.id)) && (filter === 'All' || p.cat === filter) && (kindF === 'All' || kindOf(p) === kindF) && (!query || (p.name + ' ' + p.cat + ' ' + p.type + ' ' + KW[kindOf(p)]).toLowerCase().includes(query)));
+  if (sortBy === 'low') list.sort((a,b) => a.price - b.price);
+  if (sortBy === 'high') list.sort((a,b) => b.price - a.price);
+  if (sortBy === 'disc') list.sort((a,b) => disc(b) - disc(a));
+  $('#count').textContent = list.length + (list.length === 1 ? ' piece' : ' pieces') + (savedOnly ? ' saved' : (filter === 'All' && kindF === 'All') ? '' : ' in ' + [filter !== 'All' ? filter : '', kindF !== 'All' ? kindF : ''].filter(Boolean).join(' / '));
+  $('#grid').innerHTML = list.length ? list.map(p => `
+    <article class="card">
+      <div class="art" style="background:${tint(p.colors[0].h)}" data-open="${p.id}" role="button" tabindex="0" aria-label="View ${p.name}">
+        ${svg(p.type, p.colors[0].h)}
+        <span class="tag ${p.tag ? '' : 'sale'}">${p.tag || disc(p) + '% off'}</span>
+        <button class="heart" data-wish="${p.id}" aria-pressed="${wish.includes(p.id)}" aria-label="Save ${p.name}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.400-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.600-9 9-9 9z"/></svg></button>
+      </div>
+      <div class="info">
+        <div class="meta">${p.cat}</div>
+        <h3>${p.name}</h3>
+        <div class="price">${money(p.price)} <s>${money(p.mrp)}</s></div>
+        <div class="dots" aria-label="${p.colors.length} colours">${p.colors.map(c => `<i style="background:${c.h}" title="${c.n}"></i>`).join('')}</div>
+        <button class="btn" data-open="${p.id}">${kindOf(p) === 'Bags' ? 'View bag' : 'Choose size'}</button>
+      </div>
+    </article>`).join('') : `<div class="empty">No pieces match "${query.replace(/[<>&"]/g,'')}". Try another word or clear the filter.</div>`;
+}
+$('#grid').addEventListener('click', e => {
+  const w = e.target.closest('[data-wish]');
+  if (w){ e.stopPropagation(); toggleWish(+w.dataset.wish); return; }
+  const o = e.target.closest('[data-open]');
+  if (o) openProduct(+o.dataset.open);
+});
+$('#grid').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.art')){ e.preventDefault(); openProduct(+e.target.dataset.open); } });
+
+/* wishlist */
+function toggleWish(id){
+  wish = wish.includes(id) ? wish.filter(x => x !== id) : [...wish, id];
+  save('hc_wish', wish); updateCounts(); renderGrid();
+  toast(wish.includes(id) ? 'Saved to your list' : 'Removed from your list');
+}
+$('#wishBtn').onclick = () => {
+  if (!wish.length) return toast('Tap the heart on any piece to save it');
+  savedOnly = true; query = ''; $('#q').value = ''; filter = 'All'; kindF = 'All'; syncChips();
+  renderGrid(); $('#shop').scrollIntoView();
+};
+
+/* product dialog */
+function openProduct(id){
+  const p = byId(id); cur = {p, ci:0, size:p.sizes.length === 1 ? p.sizes[0] : null, qty:1}; drawProduct();
+  const d = $('#pd'); if (!d.open) d.showModal();
+}
+function drawProduct(){
+  const {p, ci, size, qty} = cur, c = p.colors[ci];
+  $('#pd').innerHTML = `
+  <div class="qv">
+    <div class="big" style="background:${tint(c.h)}">${svg(p.type, c.h)}</div>
+    <div class="det">
+      <button class="x" id="pdx" aria-label="Close">&times;</button>
+      <div class="meta">${p.cat}</div>
+      <h2>${p.name}</h2>
+      <div class="price" style="font-size:20px">${money(p.price)} <s>${money(p.mrp)}</s> <span class="tag sale" style="position:static">${disc(p)}% off</span></div>
+      <p style="margin:0;color:var(--muted)">${p.desc}</p>
+      <div><div class="lbl"><span>Colour: ${c.n}</span></div><div class="opts">${p.colors.map((x,i) => `<button class="sw" data-ci="${i}" style="background:${x.h}" aria-pressed="${i === ci}" aria-label="${x.n}"></button>`).join('')}</div></div>
+      <div><div class="lbl"><span>Size</span>${kindOf(p) === 'Bags' ? '' : '<a href="#sizes" id="pdsz">Size guide</a>'}</div><div class="opts">${p.sizes.map(s => `<button class="sz" data-sz="${s}" aria-pressed="${s === size}">${s}</button>`).join('')}</div></div>
+      <div class="qty" style="align-self:flex-start"><button data-q="-1" aria-label="Fewer">&minus;</button><span>${qty}</span><button data-q="1" aria-label="More">+</button></div>
+      <button class="btn accent block" id="pdadd">Add to bag</button>
+      <p class="meta" style="margin:0">${p.fabric}. ${CARE[kindOf(p)]}</p>
+    </div>
+  </div>`;
+  const d = $('#pd');
+  $('#pdx').onclick = () => d.close();
+  if ($('#pdsz')) $('#pdsz').onclick = () => { d.close(); drawSizes(kindOf(p) === 'Shoes' ? 'shoes' : p.cat === 'Women' ? 'women' : 'men'); };
+  d.querySelectorAll('[data-ci]').forEach(b => b.onclick = () => { cur.ci = +b.dataset.ci; drawProduct(); });
+  d.querySelectorAll('[data-sz]').forEach(b => b.onclick = () => { cur.size = b.dataset.sz; drawProduct(); });
+  d.querySelectorAll('[data-q]').forEach(b => b.onclick = () => { cur.qty = Math.max(1, Math.min(9, cur.qty + +b.dataset.q)); drawProduct(); });
+  $('#pdadd').onclick = () => {
+    if (!cur.size){ toast('Pick a size first'); return; }
+    addToCart(p.id, c.n, cur.size, cur.qty); d.close(); openBag();
+  };
+}
+$('#pd').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
+
+/* cart */
+function addToCart(id, color, size, qty){
+  const k = [id,color,size].join('|'), f = cart.find(i => i.k === k);
+  if (f) f.qty = Math.min(9, f.qty + qty); else cart.push({k, id, color, size, qty});
+  save('hc_cart', cart); updateCounts(); renderBag(); toast('Added to bag');
+}
+function totals(){
+  const sub = cart.reduce((s,i) => s + byId(i.id).price * i.qty, 0);
+  const pct = coupon && CONFIG.coupons[coupon] ? CONFIG.coupons[coupon] : 0;
+  const d = sub * pct / 100;
+  const ship = sub === 0 || sub >= CONFIG.freeShippingAbove ? 0 : CONFIG.shippingFee;
+  return {sub, pct, d, ship, total: sub - d + ship};
+}
+function updateCounts(){
+  const n = cart.reduce((s,i) => s + i.qty, 0);
+  $('#bagCount').textContent = n || ''; $('#wishCount').textContent = wish.length || '';
+}
+function renderBag(){
+  const body = $('#bagBody'), foot = $('#bagFoot');
+  if (!cart.length){
+    body.innerHTML = `<div class="empty" style="padding:60px 0">Your bag is empty.<br><br><button class="btn" id="bagShop">Start shopping</button></div>`;
+    foot.innerHTML = ''; foot.style.display = 'none';
+    $('#bagShop').onclick = () => { closeBag(); $('#shop').scrollIntoView(); };
+    return;
+  }
+  foot.style.display = '';
+  const t = totals(), left = Math.max(0, CONFIG.freeShippingAbove - t.sub);
+  body.innerHTML = `<div class="free">${left ? `Add ${money(left)} more for free shipping` : 'You have unlocked free shipping'}<div class="bar"><i style="width:${Math.min(100, t.sub / CONFIG.freeShippingAbove * 100)}%"></i></div></div>` +
+  cart.map(i => { const p = byId(i.id), c = p.colors.find(x => x.n === i.color) || p.colors[0]; return `
+    <div class="line">
+      <div class="th" style="background:${tint(c.h)}">${svg(p.type, c.h)}</div>
+      <div><h4>${p.name}</h4><small>${i.color}${szTxt(i.size)}</small><br><small>${money(p.price)}</small><br>
+        <button class="rm" data-rm="${i.k}">Remove</button></div>
+      <div class="qty"><button data-d="-1" data-k="${i.k}" aria-label="Fewer">&minus;</button><span>${i.qty}</span><button data-d="1" data-k="${i.k}" aria-label="More">+</button></div>
+    </div>`; }).join('');
+  foot.innerHTML = `
+    <div class="cp"><input class="field" id="cpIn" placeholder="Coupon code" aria-label="Coupon code" value="${coupon || ''}"><button class="btn ghost" id="cpBtn">Apply</button></div>
+    <p class="msg ${coupon ? 'ok' : ''}" id="cpMsg">${coupon ? coupon + ' applied: ' + t.pct + '% off' : ''}</p>
+    <div class="sum"><span>Subtotal</span><span>${money(t.sub)}</span></div>
+    ${t.d ? `<div class="sum"><span>Discount</span><span>&minus;${money(t.d)}</span></div>` : ''}
+    <div class="sum"><span>Shipping</span><span>${t.ship ? money(t.ship) : 'Free'}</span></div>
+    <div class="sum t"><span>Total</span><span>${money(t.total)}</span></div>
+    <button class="btn accent block" id="goCk" style="margin-top:12px">Checkout</button>`;
+  $('#cpBtn').onclick = () => {
+    const code = $('#cpIn').value.trim().toUpperCase();
+    if (!code){ coupon = null; save('hc_coupon', null); renderBag(); return; }
+    if (CONFIG.coupons[code]){ coupon = code; save('hc_coupon', code); renderBag(); toast('Coupon applied'); }
+    else { $('#cpMsg').className = 'msg bad'; $('#cpMsg').textContent = 'That code is not valid. Check the spelling and try again.'; }
+  };
+  $('#goCk').onclick = openCheckout;
+}
+$('#bagBody').addEventListener('click', e => {
+  const r = e.target.closest('[data-rm]');
+  if (r){ cart = cart.filter(i => i.k !== r.dataset.rm); }
+  const d = e.target.closest('[data-d]');
+  if (d){ const it = cart.find(i => i.k === d.dataset.k); it.qty += +d.dataset.d; if (it.qty < 1) cart = cart.filter(i => i !== it); it.qty = Math.min(9, it.qty); }
+  if (r || d){ save('hc_cart', cart); updateCounts(); renderBag(); }
+});
+function openBag(){ renderBag(); $('#drawer').classList.add('on'); $('#scrim').classList.add('on'); $('#drawer').setAttribute('aria-hidden','false'); }
+function closeBag(){ $('#drawer').classList.remove('on'); $('#scrim').classList.remove('on'); $('#drawer').setAttribute('aria-hidden','true'); }
+$('#bagBtn').onclick = openBag; $('#closeBag').onclick = closeBag; $('#scrim').onclick = closeBag;
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBag(); });
+
+/* checkout */
+function openCheckout(){
+  const t = totals(), d = $('#ck');
+  d.innerHTML = `<div class="ck">
+    <div style="display:flex;justify-content:space-between;align-items:start"><div><h2>Delivery details</h2><p class="meta" style="margin:0 0 16px">We confirm your order on WhatsApp before dispatch. Total: <b>${money(t.total)}</b></p></div><button class="x" id="ckx" aria-label="Close">&times;</button></div>
+    <form class="stack" id="ckForm">
+      <div class="row2"><label>Full name<input class="field" name="name" required autocomplete="name"></label>
+      <label>Phone number<input class="field" name="phone" required inputmode="tel" pattern="[0-9+ ]{10,14}" autocomplete="tel" title="Enter a 10 digit mobile number"></label></div>
+      <label>Address<textarea class="field" name="addr" required autocomplete="street-address"></textarea></label>
+      <div class="row2"><label>City<input class="field" name="city" required autocomplete="address-level2"></label>
+      <label>Pin code<input class="field" name="pin" required inputmode="numeric" pattern="[0-9]{6}" title="Enter a 6 digit pin code" autocomplete="postal-code"></label></div>
+      <label>Payment<select class="field" name="pay"><option>Cash on delivery</option><option>UPI (we send details)</option></select></label>
+      <button class="btn accent block" type="submit">Place order</button>
+    </form></div>`;
+  closeBag(); if (!d.open) d.showModal();
+  $('#ckx').onclick = () => d.close();
+  $('#ckForm').onsubmit = e => {
+    e.preventDefault();
+    const f = Object.fromEntries(new FormData(e.target));
+    const lines = cart.map(i => `- ${byId(i.id).name} (${i.color}, ${i.size}) x${i.qty} = ${money(byId(i.id).price * i.qty)}`).join('\n');
+    lastOrder = `New order for ${CONFIG.brand}\n\n${lines}\n\nSubtotal: ${money(t.sub)}${t.d ? '\nDiscount (' + coupon + '): -' + money(t.d) : ''}\nShipping: ${t.ship ? money(t.ship) : 'Free'}\nTotal: ${money(t.total)}\nPayment: ${f.pay}\n\nName: ${f.name}\nPhone: ${f.phone}\nAddress: ${f.addr}, ${f.city} - ${f.pin}`;
+    cart = []; coupon = null; save('hc_cart', cart); save('hc_coupon', null); updateCounts(); renderBag();
+    const wa = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(lastOrder);
+    d.innerHTML = `<div class="ck"><div style="display:flex;justify-content:space-between"><h2>Almost done, ${f.name.split(' ')[0].replace(/[<>&"]/g,'')}</h2><button class="x" id="ckx2" aria-label="Close">&times;</button></div>
+      <p>Send your order to us on WhatsApp so we can confirm it. Your bag has been cleared.</p>
+      <div class="ordertxt" id="ordTxt"></div>
+      <div class="cta" style="margin-top:16px"><a class="btn accent" href="${wa}" target="_blank" rel="noopener">Send on WhatsApp</a><button class="btn ghost" id="cpy">Copy order</button><a class="btn ghost" href="${IG}" target="_blank" rel="noopener">Message on Instagram</a></div></div>`;
+    $('#ordTxt').textContent = lastOrder;
+    $('#ckx2').onclick = () => d.close();
+    $('#cpy').onclick = () => { (navigator.clipboard ? navigator.clipboard.writeText(lastOrder) : Promise.reject()).then(() => toast('Order copied'), () => toast('Select the text and copy it')); };
+  };
+}
+$('#ck').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
+
+/* size guide */
+const SIZES = {
+  men: [['Size','Chest','Waist','Shirt length'],['S','36-38','30-32','27'],['M','38-40','32-34','28'],['L','40-42','34-36','29'],['XL','42-44','36-38','30']],
+  shoes: [['UK/India','EU','Foot length (cm)'],['3','36','22.5'],['4','37','23.3'],['5','38','24.1'],['6','39','24.9'],['7','40','25.7'],['8','42','26.5'],['9','43','27.4'],['10','44','28.2'],['11','45','29.0']],
+  women: [['Size','Bust','Waist','Hip'],['XS','31-32','24-25','34-35'],['S','33-34','26-27','36-37'],['M','35-36','28-29','38-39'],['L','37-38','30-31','40-41']]
+};
+function drawSizes(k){
+  const [h, ...rows] = SIZES[k];
+  $('#sizeTbl').innerHTML = `<table><thead><tr>${h.map(x => `<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map(x => `<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+  $$('.tabs .chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.sz === k));
+}
+$$('.tabs .chip').forEach(b => b.onclick = () => drawSizes(b.dataset.sz));
+
+/* contact */
+$('#contactForm').onsubmit = e => {
+  e.preventDefault();
+  const f = Object.fromEntries(new FormData(e.target));
+  window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(`Hi ${CONFIG.brand}, I'm ${f.n}. ${f.m}`), '_blank', 'noopener');
+};
+
+drawSizes('men'); syncChips(); renderGrid(); updateCounts(); renderBag();
+</script>
+</body>
+</html>
